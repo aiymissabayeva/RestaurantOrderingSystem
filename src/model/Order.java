@@ -13,5 +13,16 @@ public class Order {
         this.status = OrderStatus.CREATED;
     }
 
+    public Customer getCustomer(){
+        return customer;
+    }
+
+    public List<Meal> getMeals(){
+        return meals;
+    }
+
+    public OrderStatus getStatus(){
+        return status;
+    }
 
 }
