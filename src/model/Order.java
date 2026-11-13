@@ -25,4 +25,16 @@ public class Order {
         return status;
     }
 
+    public void setStatus(OrderStatus status){
+        this.status =status;
+    }
+
+    public double getTotalPrice(){
+        double total = 0;
+
+        for (Meal meal : meals){
+            total += meal.getPrice();
+        }
+        return total;
+    }
 }
