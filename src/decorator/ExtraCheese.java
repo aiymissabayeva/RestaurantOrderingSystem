@@ -8,7 +8,7 @@ public class ExtraCheese extends MealDecorator{
 
     @Override
     public String getName(){
-        return meal.getName() + " Cheese";
+        return meal.getName() + " + Cheese";
     }
     @Override
     public double getPrice(){
