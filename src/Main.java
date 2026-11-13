@@ -2,10 +2,10 @@ import factory.MealFactory;
 import decorator.ExtraCheese;
 import decorator.ExtraSauce;
 import strategy.StudentDiscount;
+import strategy.RegularDiscount;
 import observer.OrderPublisher;
 import observer.CustomerNotifier;
 import observer.KitchenNotifier;
-import builder.OrderBuilder;
 import facade.RestaurantFacade;
 import model.Customer;
 import model.Meal;
@@ -44,6 +44,23 @@ public class Main {
 
         //change status and notify observers
         restaurant.markReady(order);
+
+
+        System.out.println("\n=== SECOND ORDER ===");
+
+        //factory creates another meal
+        Meal burger = factory.createMeal("burger");
+
+        //strategy: no discount
+        RestaurantFacade regularRestaurant = new RestaurantFacade(
+                new RegularDiscount(), publisher);
+
+        //builder and Facade create the order
+        Order secondOrder = regularRestaurant.placeOrder(
+                new Customer("Zhannur"), burger);
+
+        //observer notifies subscribers
+        regularRestaurant.markReady(secondOrder);
 
         System.out.println("=== ORDER COMPLETED ===");
     }
