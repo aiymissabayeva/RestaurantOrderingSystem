@@ -1,6 +1,8 @@
+import factory.BurgerFactory;
 import factory.MealFactory;
 import decorator.ExtraCheese;
 import decorator.ExtraSauce;
+import factory.PizzaFactory;
 import strategy.StudentDiscount;
 import strategy.RegularDiscount;
 import observer.OrderPublisher;
@@ -17,8 +19,8 @@ public class Main {
         System.out.println("=== RESTAURANT ORDERING SYSTEM ===");
 
         //factory create meal
-        MealFactory factory = new MealFactory();
-        Meal meal = factory.createMeal("pizza");
+        MealFactory pizzaFactory = new PizzaFactory();
+        Meal meal = pizzaFactory.createMeal();
 
         //decorator add toppings
         meal = new ExtraCheese(meal);
@@ -49,7 +51,8 @@ public class Main {
         System.out.println("\n=== SECOND ORDER ===");
 
         //factory creates another meal
-        Meal burger = factory.createMeal("burger");
+        MealFactory burgerFactory = new BurgerFactory();
+        Meal burger = burgerFactory.createMeal();
 
         //strategy: no discount
         RestaurantFacade regularRestaurant = new RestaurantFacade(
