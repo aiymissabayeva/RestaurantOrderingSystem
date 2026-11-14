@@ -150,4 +150,4 @@ The Restaurant Ordering System demonstrates how six design patterns can work tog
 
 By separating object creation, functionality extension, discount calculation, status notification, and order management, the system becomes easier to understand, maintain, and extend.
 
-**Academic Project — Java Design Patterns**
+**Academic Project - Java Design Patterns**
